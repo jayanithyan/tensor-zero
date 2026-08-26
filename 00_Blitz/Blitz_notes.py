@@ -26,3 +26,11 @@ print(f"Device tensor is stored on: {tensor.device}")
 device = torch.accelerator.current_accelerator().type if torch.accelerator.is_available() else 'cpu'
 tensor = tensor.to(device)
 print(f"Device tensor is stored on: {tensor.device}")
+
+tensor = torch.ones(4, 4)
+tensor[:,1] = 0
+print(tensor)
+
+t1 = torch.cat([tensor, tensor, tensor], dim=1)
+print(t1)
+
