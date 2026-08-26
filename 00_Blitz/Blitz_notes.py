@@ -21,3 +21,8 @@ tensor = torch.rand(3, 4)
 print(f"Shape of tensor: {tensor.shape}")
 print(f"Datatype of tensor: {tensor.dtype}")
 print(f"Device tensor is stored on: {tensor.device}")
+
+
+device = torch.accelerator.current_accelerator().type if torch.accelerator.is_available() else 'cpu'
+tensor = tensor.to(device)
+print(f"Device tensor is stored on: {tensor.device}")
